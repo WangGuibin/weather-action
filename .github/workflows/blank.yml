@@ -21,7 +21,7 @@ jobs:
       - name: 'Get DataSource'
         run: curl https://news.topurl.cn > ./result.html
       - name: 'Get Info'
-        run: python ./py.py
+        run: python ./getInfo.py
       - name: 'Commit result.txt'
         run: |
            git pull
