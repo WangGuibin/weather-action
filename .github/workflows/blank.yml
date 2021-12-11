@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.MAIL_USER_NMAE }}
           password: ${{ secrets.MAIL_PWD }}
           subject: 今日新闻简报推送 (${{env.REPORT_DATE}})
-          body: file://result.txt
+          body: file://result.md
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/html
