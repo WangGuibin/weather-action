@@ -1,0 +1,27 @@
+on:
+  push:
+  schedule:
+    - cron: '0 22 * * *'
+    
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Get Weather'
+        run: bash ./weather.sh
+      - name: 'Get Date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USER_NMAE }}
+          password: ${{ secrets.MAIL_PWD }}
+          subject: Shanghai Weather Report (${{env.REPORT_DATE}})
+          body: file://result.html
+          to: 864562082@qq.com
+          from: GitHub Actions
+          content_type: text/html
