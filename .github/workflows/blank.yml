@@ -23,7 +23,7 @@ jobs:
       - name: 'Get Info'
         run: python ./py.py
       - name: 'Commit result.txt'
-        run:|
+        run: |
            git pull
            git add -A
            git commit -m "Github Action" 
