@@ -42,10 +42,13 @@ jobs:
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/html
+      - name: "获取秒级时间戳"
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with: 
+          timeZone: 8
       - name: "时光相册签到"
         run: |
-           TimeStamp=date +%s
-           URL=https://api.everphoto.cn/users/self/checkin/v2
            result=$(curl \
               -X POST \
               -H "Content-Type:application/json"\
@@ -53,7 +56,7 @@ jobs:
               -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
               -H "x-uid:${{ secrets.SGXC_X_UID }}"\
               -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
-              -H "X-Timestamp:${TimeStamp}"\
+              -H "X-Timestamp:${{ steps.time.outputs.time }}"\
               -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
               -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
               -H "X-Locked:1"\
@@ -62,7 +65,7 @@ jobs:
               -H "Accept-Language:zh-Hans-CN;q=1.0"\
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
-               ${URL})
+               https://api.everphoto.cn/users/self/checkin/v2)
             isChecked=$(echo $result | grep 'checkin_result: true')
             [[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
       - name: '发送到钉钉群'
