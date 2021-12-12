@@ -1,7 +1,7 @@
 on:
   push:
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '0 23 * * *'
     
 jobs:
   bot:
@@ -37,3 +37,13 @@ jobs:
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/html
+      - name: '获取文本到环境变量里去'
+        run: echo "INFO_TEXT=$(cat ./result.txt)" >> $GITHUB_ENV
+      - name: '发送到钉钉群'
+        uses: fifsky/dingtalk-action@master
+        with:
+          url: ${{ secrets.DINGTALK_WEBHOOK}}
+          type: text
+          content: ${{env.INFO_TEXT}}
+
+        
