@@ -42,6 +42,29 @@ jobs:
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/html
+      - name: "时光相册签到"
+        run: |
+           timestamp=`date +%s`
+           URL=https://api.everphoto.cn/users/self/checkin/v2
+           result=$(curl \
+              -X POST \
+              -H "Content-Type:application/json"\
+              -H "Authorization:${{ secrets.SGXC_AUTHORIZATION }}" \
+              -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
+              -H "x-uid:${{ secrets.SGXC_X_UID }}"\
+              -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
+              -H "X-Timestamp:${timestamp}"\
+              -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
+              -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
+              -H "X-Locked:1"\
+              -H "Host:api.everphoto.cn"\
+              -H "User-Agent:EverPhoto/2.7.10 (iOS;271002;iPhone11,8;14.0.1;App Store)"\
+              -H "Accept-Language:zh-Hans-CN;q=1.0"\
+              -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
+              -H "Accept:*/*"\
+               ${URL})
+            isChecked=$(echo $result | grep 'checkin_result: true')
+            [[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
         with:
@@ -51,6 +74,7 @@ jobs:
           content: |
             ${{env.The_TEXT}}
             
+            时光相册签到状态: ${{env.CheckState}}
             发布自Github Action
             https://github.com/WangGuibin/weather-action 
 
