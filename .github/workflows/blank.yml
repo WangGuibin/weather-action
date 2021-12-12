@@ -26,7 +26,7 @@ jobs:
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Get Text'
-        run: echo 'The_TEXT=$(cat ./result.txt)' >> $GITHUB_ENV
+        run: echo 'The_TEXT=`cat ./result.txt`' >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
