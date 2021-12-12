@@ -23,6 +23,8 @@ jobs:
         run: curl https://news.topurl.cn > ./result.html
       - name: 'Get Info'
         run: python ./getInfo.py
+      - name: '获取文本到环境变量'
+        run:  echo "MY_TEXT=$(cat ./result.txt)" >> $GITHUB_ENV
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
@@ -42,6 +44,6 @@ jobs:
         with:
           url: ${{ secrets.DINGTALK_WEBHOOK}}
           type: text
-          content: $(cat ./result.txt)
+          content: ${{env.MY_TEXT}}
 
         
