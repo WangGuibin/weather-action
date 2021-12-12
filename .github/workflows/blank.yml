@@ -63,19 +63,21 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-            #isChecked=$(echo $result | grep 'checkin_result: true')
-            #[[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
-      - name: '发送到钉钉群'
-        uses: fifsky/dingtalk-action@master
-        with:
-          url: ${{ secrets.DINGTALK_WEBHOOK}}
-          type: text
-          at: all
-          content: |
-            ${{env.The_TEXT}}
+            echo $result
+            isChecked=$(echo $result | grep 'checkin_result: true')
+            [[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
+            echo ${{env.CheckState}}
+#       - name: '发送到钉钉群'
+#         uses: fifsky/dingtalk-action@master
+#         with:
+#           url: ${{ secrets.DINGTALK_WEBHOOK}}
+#           type: text
+#           at: all
+#           content: |
+#             ${{env.The_TEXT}}
             
-            时光相册签到状态: ${{env.CheckState}}
-            发布自Github Action
-            https://github.com/WangGuibin/weather-action 
+#             时光相册签到状态: ${{env.CheckState}}
+#             发布自Github Action
+#             https://github.com/WangGuibin/weather-action 
 
         
