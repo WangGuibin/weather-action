@@ -50,5 +50,8 @@ jobs:
           at: all
           content: |
             ${{env.The_TEXT}}
+            
+            发布自Github Action
+            https://github.com/WangGuibin/weather-action 
 
         
