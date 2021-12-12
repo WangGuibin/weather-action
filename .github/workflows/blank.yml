@@ -25,11 +25,11 @@ jobs:
         run: python ./getInfo.py
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
-      - name: 'Get Text'
-        run: | 
-         set -x -e
-         echo "The_TEXT=<<EOF\n$(head -n 30 ./result.txt)\nEOF" >> $GITHUB_ENV
-          
+      - name: 'Get TEXT'
+        run: |
+            echo 'The_TEXT<<EOF' >> $GITHUB_ENV
+            cat ./result.txt >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
