@@ -42,13 +42,9 @@ jobs:
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/html
-      - name: "获取秒级时间戳"
-        id: time
-        uses: nanzm/get-time-action@v1.1
-        with: 
-          timeZone: 8
       - name: "时光相册签到"
         run: |
+           echo "SGXC_TIMESTAMP=$(date '+%s')" >> $GITHUB_ENV
            result=$(curl \
               -X POST \
               -H "Content-Type:application/json"\
@@ -56,7 +52,7 @@ jobs:
               -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
               -H "x-uid:${{ secrets.SGXC_X_UID }}"\
               -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
-              -H "X-Timestamp:${{ steps.time.outputs.time }}"\
+              -H "X-Timestamp:${{ env.SGXC_TIMESTAMP }}"\
               -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
               -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
               -H "X-Locked:1"\
