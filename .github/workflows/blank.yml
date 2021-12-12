@@ -47,6 +47,7 @@ jobs:
         with:
           url: ${{ secrets.DINGTALK_WEBHOOK}}
           type: text
+          at: all
           content: |
             ${{env.The_TEXT}}
 
