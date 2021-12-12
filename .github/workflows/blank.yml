@@ -28,7 +28,7 @@ jobs:
       - name: 'Get Text'
         run: | 
          set -x -e
-         echo "The_TEXT=$(head -n 30 ./result.txt)" >> $GITHUB_ENV
+         echo "The_TEXT=<<EOF\n$(head -n 30 ./result.txt)\nEOF" >> $GITHUB_ENV
           
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
