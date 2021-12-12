@@ -44,7 +44,7 @@ jobs:
           content_type: text/html
       - name: "时光相册签到"
         run: |
-           timestamp=`date +%s`
+           TimeStamp=date +%s
            URL=https://api.everphoto.cn/users/self/checkin/v2
            result=$(curl \
               -X POST \
@@ -53,7 +53,7 @@ jobs:
               -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
               -H "x-uid:${{ secrets.SGXC_X_UID }}"\
               -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
-              -H "X-Timestamp:${timestamp}"\
+              -H "X-Timestamp:${TimeStamp}"\
               -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
               -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
               -H "X-Locked:1"\
