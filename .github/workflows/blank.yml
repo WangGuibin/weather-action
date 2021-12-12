@@ -24,7 +24,9 @@ jobs:
       - name: 'Get Info'
         run: python ./getInfo.py
       - name: 'Get Date'
-        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+        run: |
+          echo "SGXC_TIMESTAMP=$(TZ=':Asia/Shanghai' date '+%s')" >> $GITHUB_ENV
+          echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Get TEXT'
         run: |
             echo 'The_TEXT<<EOF' >> $GITHUB_ENV
@@ -44,7 +46,6 @@ jobs:
           content_type: text/html
       - name: "时光相册签到"
         run: |
-           echo "SGXC_TIMESTAMP=$(date '+%s')" >> $GITHUB_ENV
            result=$(curl \
               -X POST \
               -H "Content-Type:application/json"\
@@ -62,8 +63,8 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-            isChecked=$(echo $result | grep 'checkin_result: true')
-            [[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
+            #isChecked=$(echo $result | grep 'checkin_result: true')
+            #[[ "$isChecked" != "" ]] && echo "CheckState="时光相册签到成功!"" >> $GITHUB_ENV || echo "CheckState="时光相册签到失败!"" >> $GITHUB_ENV
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
         with:
