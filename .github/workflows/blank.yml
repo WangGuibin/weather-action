@@ -29,7 +29,7 @@ jobs:
           echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Get TEXT'
         run: |
-            echo 'The_TEXT<<EOF' >> $GITHUB_ENV
+            echo 'FILE_TEXT<<EOF' >> $GITHUB_ENV
             cat ./result.txt >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
       - name: 'Send mail'
@@ -63,8 +63,8 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-            echo 'CheckState <<EOF' >> $GITHUB_ENV
-            echo $result >> $GITHUB_ENV
+            echo 'CheckState<<EOF' >> $GITHUB_ENV
+            echo "$result" >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
@@ -73,7 +73,7 @@ jobs:
           type: text
           at: all
           content: |
-            ${{env.The_TEXT}}
+            ${{env.FILE_TEXT}}
             
             时光相册签到: 
             ${{env.CheckState}}
@@ -88,8 +88,7 @@ jobs:
           username: ${{ secrets.MAIL_USER_NMAE }}
           password: ${{ secrets.MAIL_PWD }}
           subject: 时光相册签到 (${{env.REPORT_DATE}})
-          body: 时光相册签到结果 ${{env.CheckState}}
+          body: "时光相册签到结果如下:\n ${{env.CheckState}}"
           to: 864562082@qq.com
           from: GitHub Actions
-          content_type: text/html
   
