@@ -63,8 +63,9 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-            echo $result
-            echo "CheckState=$result" >> $GITHUB_ENV
+            echo 'CheckState <<EOF' >> $GITHUB_ENV
+            echo $result >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
         with:
@@ -79,5 +80,16 @@ jobs:
             
             发布自Github Action
             https://github.com/WangGuibin/weather-action 
-
-        
+      - name: '发送邮件通知'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USER_NMAE }}
+          password: ${{ secrets.MAIL_PWD }}
+          subject: 时光相册签到 (${{env.REPORT_DATE}})
+          body: 时光相册签到结果 ${{env.CheckState}}
+          to: 864562082@qq.com
+          from: GitHub Actions
+          content_type: text/html
+  
