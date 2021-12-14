@@ -1,7 +1,7 @@
 on:
   push:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: "38 22 * * *" #早上七点的样子 因为设置 '0 23 * * *'在早上点22左右才推送
     
 jobs:
   bot:
@@ -63,9 +63,11 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
+            sleep 1s   
             echo 'CheckState<<EOF' >> $GITHUB_ENV
-            echo "$result" >> $GITHUB_ENV
+            echo $result >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
+            sleep 5s 
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
         with:
@@ -91,4 +93,4 @@ jobs:
           body: "时光相册签到结果如下:\n ${{env.CheckState}}"
           to: 864562082@qq.com
           from: GitHub Actions
-  
+          content_type: text/plain
