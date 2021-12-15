@@ -63,42 +63,28 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-            sleep 1s
-            localectl set-locale  LANG=zh_CH.UTF-8 
-            source /etc/locale.conf
-            echo $LANG
-            echo 'CheckState<<EOF' >> $GITHUB_ENV
-            echo $result >> $GITHUB_ENV
-            echo 'EOF' >> $GITHUB_ENV
-            sleep 5s 
-      - name: "验证参数"
-        run: |
-          echo $LANG
-          echo ${{env.CheckState}}
-          echo "世界你好!"
-#       - name: '发送到钉钉群'
-#         uses: fifsky/dingtalk-action@master
-#         with:
-#           url: ${{ secrets.DINGTALK_WEBHOOK}}
-#           type: text
-#           at: all
-#           content: |
-#             ${{env.FILE_TEXT}}
+      - name: '发送到钉钉群'
+        uses: fifsky/dingtalk-action@master
+        with:
+          url: ${{ secrets.DINGTALK_WEBHOOK}}
+          type: text
+          at: all
+          content: |
+            ${{env.FILE_TEXT}}
+             
+            🔥时光相册签到成功!已成功白嫖(+50MB)~
             
-#             时光相册签到: 
-#             ${{env.CheckState}}
-            
-#             发布自Github Action
-#             https://github.com/WangGuibin/weather-action 
-#       - name: '发送邮件通知'
-#         uses: dawidd6/action-send-mail@master
-#         with:
-#           server_address: smtp.163.com
-#           server_port: 465
-#           username: ${{ secrets.MAIL_USER_NMAE }}
-#           password: ${{ secrets.MAIL_PWD }}
-#           subject: 时光相册签到 (${{env.REPORT_DATE}})
-#           body: "时光相册签到结果如下:\n ${{env.CheckState}}"
-#           to: 864562082@qq.com
-#           from: GitHub Actions
-#           content_type: text/plain
+            发布自Github Action
+            https://github.com/WangGuibin/weather-action 
+      - name: '发送邮件通知'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USER_NMAE }}
+          password: ${{ secrets.MAIL_PWD }}
+          subject: 时光相册签到 (${{env.REPORT_DATE}})
+          body: "🔥时光相册签到成功!已成功白嫖(+50MB)~"
+          to: 864562082@qq.com
+          from: GitHub Actions
+          content_type: text/plain
