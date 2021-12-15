@@ -1,7 +1,7 @@
 on:
   push:
   schedule:
-    - cron: "38 22 * * *" #早上七点的样子 因为设置 '0 23 * * *'在早上点22左右才推送
+    - cron: "38 22 * * *" #早上6点45左右推送
     
 jobs:
   bot:
@@ -27,50 +27,55 @@ jobs:
         run: |
           echo "SGXC_TIMESTAMP=$(TZ=':Asia/Shanghai' date '+%s')" >> $GITHUB_ENV
           echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
-          echo "世界你好!"
+      - name: 'Get TEXT'
+        run: |
+            echo 'FILE_TEXT<<EOF' >> $GITHUB_ENV
+            cat ./result.txt >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USER_NMAE }}
+          password: ${{ secrets.MAIL_PWD }}
+          subject: 今日新闻简报推送 (${{env.REPORT_DATE}})
+          body: file://result.txt
+          to: 864562082@qq.com
+          from: GitHub Actions
+          content_type: text/html
+      - name: "时光相册签到"
+        run: |
+           result=$(curl \
+              -X POST \
+              -H "Content-Type:application/json"\
+              -H "Authorization:${{ secrets.SGXC_AUTHORIZATION }}" \
+              -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
+              -H "x-uid:${{ secrets.SGXC_X_UID }}"\
+              -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
+              -H "X-Timestamp:${{ env.SGXC_TIMESTAMP }}"\
+              -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
+              -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
+              -H "X-Locked:1"\
+              -H "Host:api.everphoto.cn"\
+              -H "User-Agent:EverPhoto/2.7.10 (iOS;271002;iPhone11,8;14.0.1;App Store)"\
+              -H "Accept-Language:zh-Hans-CN;q=1.0"\
+              -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
+              -H "Accept:*/*"\
+               https://api.everphoto.cn/users/self/checkin/v2)
+            sleep 1s
+            localectl set-locale  LANG=zh_CH.UTF-8 
+            source /etc/locale.conf
+            echo $LANG
+            echo 'CheckState<<EOF' >> $GITHUB_ENV
+            echo $result >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
+            sleep 5s 
+      - name: "验证参数"
+        run: |
           echo $LANG
-          echo $GITHUB_ENV
-#       - name: 'Get TEXT'
-#         run: |
-#             echo 'FILE_TEXT<<EOF' >> $GITHUB_ENV
-#             cat ./result.txt >> $GITHUB_ENV
-#             echo 'EOF' >> $GITHUB_ENV
-#       - name: 'Send mail'
-#         uses: dawidd6/action-send-mail@master
-#         with:
-#           server_address: smtp.163.com
-#           server_port: 465
-#           username: ${{ secrets.MAIL_USER_NMAE }}
-#           password: ${{ secrets.MAIL_PWD }}
-#           subject: 今日新闻简报推送 (${{env.REPORT_DATE}})
-#           body: file://result.txt
-#           to: 864562082@qq.com
-#           from: GitHub Actions
-#           content_type: text/html
-#       - name: "时光相册签到"
-#         run: |
-#            result=$(curl \
-#               -X POST \
-#               -H "Content-Type:application/json"\
-#               -H "Authorization:${{ secrets.SGXC_AUTHORIZATION }}" \
-#               -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
-#               -H "x-uid:${{ secrets.SGXC_X_UID }}"\
-#               -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
-#               -H "X-Timestamp:${{ env.SGXC_TIMESTAMP }}"\
-#               -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
-#               -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
-#               -H "X-Locked:1"\
-#               -H "Host:api.everphoto.cn"\
-#               -H "User-Agent:EverPhoto/2.7.10 (iOS;271002;iPhone11,8;14.0.1;App Store)"\
-#               -H "Accept-Language:zh-Hans-CN;q=1.0"\
-#               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
-#               -H "Accept:*/*"\
-#                https://api.everphoto.cn/users/self/checkin/v2)
-#             sleep 1s   
-#             echo 'CheckState<<EOF' >> $GITHUB_ENV
-#             echo $result >> $GITHUB_ENV
-#             echo 'EOF' >> $GITHUB_ENV
-#             sleep 5s 
+          echo ${{env.CheckState}}
+          echo "世界你好!"
 #       - name: '发送到钉钉群'
 #         uses: fifsky/dingtalk-action@master
 #         with:
