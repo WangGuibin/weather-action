@@ -63,19 +63,19 @@ jobs:
               -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
               -H "Accept:*/*"\
                https://api.everphoto.cn/users/self/checkin/v2)
-      - name: '发送到钉钉群'
-        uses: fifsky/dingtalk-action@master
-        with:
-          url: ${{ secrets.DINGTALK_WEBHOOK}}
-          type: text
-          at: all
-          content: |
-            ${{env.FILE_TEXT}}
+#       - name: '发送到钉钉群'
+#         uses: fifsky/dingtalk-action@master
+#         with:
+#           url: ${{ secrets.DINGTALK_WEBHOOK}}
+#           type: text
+#           at: all
+#           content: |
+#             ${{env.FILE_TEXT}}
              
-            🔥时光相册签到成功!已成功白嫖(+50MB)~
+#             🔥时光相册签到成功!已成功白嫖(+50MB)~
             
-            发布自Github Action
-            https://github.com/WangGuibin/weather-action 
+#             发布自Github Action
+#             https://github.com/WangGuibin/weather-action 
       - name: '发送邮件通知'
         uses: dawidd6/action-send-mail@master
         with:
