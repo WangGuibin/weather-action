@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" class="night">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="新闻,简报,慧语简报,每日简报,新闻早报,早读,资讯,新闻12条,生成器,每日新闻早读,天天读报,分享,news,china newspaper" />
+    <meta name="description" content="每日新闻早读，一键复制分享微信好友阅读。提供经济、商业、时政、IT科技、财经、健康、体育等领域的国内外最新热门资讯，以及天气预报、历史上的今天、天天成语、天天诗词、名言警句等栏目，为您呈上政经文史的营养早餐，助您开启活力满满的崭新一天。" />
+    <meta property="og:type" content="news" />
+    <meta property="og:title" content="慧语简报丨每日新闻早读 - 2022年1月13日" />
+    <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574165344689&di=db76ad1680c8b1e4f1739cb1da5b0277&imgtype=0&src=http%3A%2F%2Fp8.qhimg.com%2Ft015304db2278d98f50.png" />
+    <meta property="og:url" content="https://news.topurl.cn/" />
+    <meta class="meta-viewport" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>慧语简报丨每日新闻早读 - 2022年1月13日</title>
+    <script>
+      function savePreference(){
+        var cls = document.querySelector('html').className;
+        var timeStamp = Date.now();
+        localStorage.setItem('day-or-night', timeStamp + '|' + cls);
+      }
+      function toggleDayNight(){
+        var html = document.querySelector('html');
+        var isNight = html.className === 'night' ? true : false;
+        html.className = isNight ? 'day' : 'night';
+        try {
+          document.querySelector('.toggle-day-night').innerText = isNight ? '☀' : '🌙';
+        } catch(e) {
+          window.addEventListener('load', function() {
+            document.querySelector('.toggle-day-night').innerText = isNight ? '☀' : '🌙';
+          })
+        }
+        savePreference();
+      }
+      function initPreference(){
+        var cache = localStorage.getItem('day-or-night') || '0|day';
+        var timeStamp = +(cache.split('|')[0]);
+        var cls = cache.split('|').pop() === 'day' ? 'day' : 'night';
+        if(timeStamp > Date.now() - 600000){
+          if(document.querySelector('html').className !== cls){
+            toggleDayNight();
+          }
+        }
+        savePreference();
+      }
+      initPreference();
+    </script>
+    <style>
+      * {
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      html, body {
+        background: #eee;
+        color: #444;
+        margin: 0;
+        transition: all 0.35s;
+      }
+      html {
+        padding: 0;
+      }
+      body {
+        padding: 0.1em 0 1.8em 0;
+      }
+      html.night, html.night body {
+        background: #18222d;
+        color: #bbb;
+      }
+      .content {
+        font-size: 1.15em;
+        width: 88%;
+        margin: 0 auto;
+        text-align: justify;
+      }
+      @media only screen and (min-width: 650px) {
+        .content {
+          width: 38em;
+          padding-top: 0.6em;
+        }
+      }
+      .line {
+        line-height: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      .weather + div {
+        margin-top: 0.85em;
+      }
+      a {
+        color: #444;
+      }
+      .night a {
+        color: #bbb;
+      }
+      a.link {
+        margin-left: 0.6em;
+        text-decoration: underline;
+        font-size: 0.8em;
+        color: orange;
+      }
+      a.link-game, a.link-char {
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        margin-top: 0.2em;
+        user-select: none;
+      }
+      a.link-game:after {
+        content: '成语解谜小游戏 >>'
+      }
+      .line a {
+        text-decoration: none;
+      }
+      .weather {
+        position: relative;
+        display: inline;
+        padding-right: 0.1em;
+        margin-right: 0.2em;
+        margin-top: 0.4em;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAF7GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDE5LTA5LTI2VDE0OjE0OjM0KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAxOS0wOS0yNlQxNDoyNTo1MiswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAxOS0wOS0yNlQxNDoyNTo1MiswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4MDc3MjlkMC00MmY4LWQ3NGYtOWZmZC03MWE5NjBkMmIyOGIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzY2NGJkN2MtNTM2Yy04ZTQxLWE1NTAtNzdlMWQyNmI4OWNkIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NzY2NGJkN2MtNTM2Yy04ZTQxLWE1NTAtNzdlMWQyNmI4OWNkIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NjY0YmQ3Yy01MzZjLThlNDEtYTU1MC03N2UxZDI2Yjg5Y2QiIHN0RXZ0OndoZW49IjIwMTktMDktMjZUMTQ6MTQ6MzQrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ODA3NzI5ZDAtNDJmOC1kNzRmLTlmZmQtNzFhOTYwZDJiMjhiIiBzdEV2dDp3aGVuPSIyMDE5LTA5LTI2VDE0OjI1OjUyKzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Kefk2wAAACJJREFUOI1j/P+/noEagIkqpowaNGrQqEGjBo0aNGoQRQAArxUCrULcQDAAAAAASUVORK5CYII=) bottom left no-repeat;
+        background-size: 100% 10px;
+        cursor: pointer;
+      }
+      .weather * {
+        vertical-align: middle;
+      }
+      .toggle-day-night {
+        opacity: 0.8;
+        cursor: pointer;
+        font-weight: normal;
+        padding-left: 0.2em;
+        transition: opacity 0.5s;
+      }
+      .toggle-day-night.fade {
+        opacity: 0;
+      }
+      .night .weather {
+        background: url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABLAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0NSA3OS4xNjM0OTksIDIwMTgvMDgvMTMtMTY6NDA6MjIgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjgwNURCRkVBRTBDMTExRTk4ODFDRjFBNzUyM0ZFNDJEIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjgwNURCRkU5RTBDMTExRTk4ODFDRjFBNzUyM0ZFNDJEIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkRENkVFRDU3RTAyNjExRTlCQzlDOEQ1RTc0NDk2MDdEIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkRENkVFRDU4RTAyNjExRTlCQzlDOEQ1RTc0NDk2MDdEIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAAwICAgICAwICAwUDAwMFBQQDAwQFBgUFBQUFBggGBwcHBwYICAkKCgoJCAwMDAwMDA4ODg4OEBAQEBAQEBAQEAEDBAQGBgYMCAgMEg4MDhIUEBAQEBQREBAQEBARERAQEBAQEBEQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ/8AAEQgAGAAYAwERAAIRAQMRAf/EAE0AAQEAAAAAAAAAAAAAAAAAAAAHAQEBAQAAAAAAAAAAAAAAAAAABwgQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AIKtTOAAAAAAAAD/2Q==) bottom left no-repeat;
+        background-size: 100% 10px;
+      }
+      .header {
+        position: relative;
+        font-size: 1.04em;
+        font-weight: bold;
+        margin-top: 1.1em;
+        margin-bottom: 0.5em;
+      }
+      .header.title {
+        margin-bottom: 0.4em;
+      }
+      .header .before {
+        position: absolute;
+        font-size: 0;
+      }
+      .header .after {
+        position: absolute;
+        font-size: 0;
+      }
+      .header .toggle-btn {
+        position: absolute;
+        display: inline-block;
+        margin-left: 0.8em;
+        user-select: none;
+        cursor: pointer;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACH0lEQVRYR82WsYvUQBSHfy+kWSs7sbKytbG10MJCBC1EPQRF0UbUw12yLxuxCIis83aLPVAbQUWxOU6vsdDKaywsLfQPOLAV4WBhhd2ROZIjGXYvyWbYdboh8973zcu8SQhLHrRkPpwJiMg6gJfM/KnKppwIJPCLAHaI6HS73f5WVqK2QAaeMrc9zzsTBMHPMhIuBK4DeJWFEdH38Xh8rtPpbBdJ1BYwAKXUKhGtWbAt3/cvtFqt3/tJOBEwABF5COCRBdscDocrcRz/nSXhTCCR6AEILJjpjJsLEUgkXgC4ZQHXmPn+NIm9CojIl6IDU/H5yex6rfXjMAzNa8qNrICuCJhnecTMT3Idk05EZBEC0FrfC8PwacpddAVS7g1mfm0mewLdbjf3zuapb9WYKIq2nLZhVYFcBeYJdhHz/1RARLoAOi52VSYHM+9uPlcBEXkO4HaZBHXXTBVIrtJ3AK7UBRTFzxSI4/hAo9FYJ6KzRUnqPJ8pYJIOBoNDo9Fog4hOWPf5gzAMzVlxNmZ2gYgcBbAB4JhFu8vMz1wZ7NuG/X7/+GQyeQ/gSBboed61IAjeupAovAeUUqeI6AOAgxngjjmozPyxrkShgAH0er3zWutNq21/AbjMzF/rSJQSMACl1FUiemPBfnied6nsL/g00dICyR1xB8Dut5yIPvu+v9JsNv8spAIpRCkVEdFhZl6tA05jK1XABdDOsXSBfzjmmCFS1ZyEAAAAAElFTkSuQmCC) center center no-repeat;
+        background-size: 16px 16px;
+      }
+      .u {
+        border-bottom: 1px dashed #666;
+      }
+      .night .u {
+        border-bottom: 1px dashed #888;
+      }
+      .line.letters {
+        text-align: left;
+        padding-right: 0.5em;
+      }
+      .lock {
+        display: inline-block;
+        margin-left: 0.1em;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADOklEQVRYR62XTYwMURDH/9U9QTpCkD04CPF1QYKzi8TXwZUDByTECjbYmXo766A5zGy/zgxZiYQQ60KQSIiDj4OLZF2ECBeEiBsuYnezsj1b8jYzm9bbM92z0y95h5muqv/vVder95qQ4SiXyyts2/4K4CIzn0kTmtIYpbXxPK9ERMW6/X1m3pvkmymA1vomgIMh0USIrAGeAtgRWXVLiKwB3gHYUAf4BGBN0uvIGuAXgCVGlIg2iMhjAMtbQWQG4HmeS0TnGulnZtJabyaixyKytBlEJgBRcRG5opQ6bkSr1erqIAheNTID4L+a6BggKg7gNjPvDxditVpdPDEx8Y2I5kcz0RFAjPgQMx9qtve11n8BzAlDzBogRvwqM3dHxet2uwEsCs2G2bVZAcSIX2bmnibi04UZl5lEAM/zthPRNgCLASysz3CzqTBzPoX4EwB/wrNWq92IBSiVSl22be8BcJiINrXo5wPM3Oj902YxGdrHzHdSZ0Br/R7AuoSD5AIzz0iv7/vnRMRt+FqWdTCfz99qFmtGBrTWqwB8bjiIyHkRGXYcZ3hkZGRuLpdbFgTB9/7+/p/RoFFxAEeZ+VqrhcS+gpjGcl4pNb2quIAx4j3MfHnWx3E7EFFxEckrpSpJ4lNnRiujNBCmYHO53I9QnLPMXEojnghgDJIgzIED4HVd8Bkz70wrngpAa23O9HsANoYLs1ETkQwk3oCicC1fgeu68x3HuQ9gV9TR7A4DMTg4uGB8fPx3/fl1Zj6SWQZi7nhvo5kwW9SyLNPlzNDMrDIB0FqXAfSFghmRHhHZH754mEw0fovIDqXU844BPM87RUQXQ4GGxsbGTrquOxJXmOY/EXmjlDIF2daYUQO+7+8VkbuhKKn6vYgcV0pdaUs92gcGBga2WJb1AEBXfVWnlVKXmgUNbdEPQRBsjWvPSUDTGSiXyytt234IYD2An0R0olAomO3XclQqlbW9vb0fk+yaPZ8CcF13nuM4jwBsB/B+cnLyWF9f38vZBm3HbwrA9/0hETkA4HmtVusuFotf2gnSiS35vl8SkSIR3RodHe12XXe8k4Dt+pqPhxdENFwoFPrbdc7C/h9+bYO5l90hQAAAAABJRU5ErkJggg==) center center no-repeat;
+        background-size: 16px 16px;
+        opacity: 0.35;
+        cursor: pointer;
+        user-select: none;
+      }
+      .lock.locked {
+        opacity: 1;
+      }
+      .locked-status {
+        background: rgba(18, 150, 219, 0.35);
+      }
+      .hans {
+        position: relative;
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        margin-top: 1.3em;
+        outline: 1px solid rgba(200,0,0,0.6);
+        vertical-align: top;
+      }
+      .hans::before, .hans::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        z-index: 0;
+        width: 140%;
+        left: -20%;
+        height: 1px;
+        top: 0;
+        bottom: 1px;
+        margin: auto 0;
+        border-bottom: 1px dashed rgba(200,0,0,0.6);
+      }
+      .hans::before {
+        transform: rotate(45deg);
+      }
+      .hans::after {
+        transform: rotate(-45deg);
+      }
+      .hans .letter {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5em;
+        line-height: 1.36em;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        z-index: 1;
+        font-family: '楷体', 'kaiti', 'simkai', '方正楷体', '楷书', 'system';
+      }
+      .hans .letter::before {
+        position: absolute;
+        font-size: 12px;
+        top: -2.5em;
+        left: -10%;
+        width: 120%;
+        text-align: center;
+        font-family: system;
+      }
+      .progress-bar {
+        font-family: Avenir, Helvetica, Arial, sans-serif, system;
+      }
+      .copyright {
+        text-align: center;
+        font-size: 0.7em;
+        margin-top: 3em;
+        line-height: 2.2em;
+        color: #999;
+      }
+      .copyright a {
+        color: #999;
+        text-decoration: underline;
+      }
+      .copyright a.copy-btn {
+        font-size: 1.2em;
+        padding: 0.2em 0.2em 0.08em;
+        text-decoration: none;
+	      border-bottom: 1px dashed #999;
+      }
+      .night .copyright {
+        color: #888;
+      }
+      .night .copyright a {
+        color: #888;
+      }
+      #area {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header title">
+        <span class="u" title="双击刷新页面" onclick="dblClick()">
+          慧语简报，1月13日星期四，农历腊月十一，工作愉快，平安喜乐
+        </span><span class="toggle-day-night fade" title="切换暗黑主题" onclick="toggleDayNight()">🌙</span>
+      </div>
+      <div class="line weather" style="display: none;" title="点击查看详细天气预报" onclick="goToWeather()">
+        明天未知， ~ ℃，undefined级
+      </div>
+      <div class="news-wrap">
+        <div class="line">1．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16270180">国妇婴回应“赶走39周孕妇”：孕妇患乙流，由产科医生陪护转院；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',0)">&emsp;</span></div><div class="line">2．<a target="_blank" href="https://www.jiemian.com/article/7008805.html">努力筹钱，融创再度配股融资45亿港元；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',1)">&emsp;</span></div><div class="line">3．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16268215">万翠堂二审被驳回全部诉求，火锅店使用“青花椒”标识不侵权；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',2)">&emsp;</span></div><div class="line">4．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16268169">新生女婴被遗弃在零下20度的俄西伯利亚郊外，所幸身体无恙；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',3)">&emsp;</span></div><div class="line">5．<a target="_blank" href="https://www.jiemian.com/article/7007765.html">大连新增阳性病例系感染奥密克戎，官方研判疫情总体可控；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',4)">&emsp;</span></div><div class="line">6．<a target="_blank" href="https://www.jiemian.com/article/7008477.html">银河证券可转债发行规模缩水近三成至78亿元，投向投资交易业务削减近半；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',5)">&emsp;</span></div><div class="line">7．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16268071">青花椒鱼火锅店胜诉，四川餐馆可用“青花椒”做招牌；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',6)">&emsp;</span></div><div class="line">8．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16270067">公安部原副部长孙力军被提起公诉：涉嫌受贿、操纵证券市场等；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',7)">&emsp;</span></div><div class="line">9．<a target="_blank" href="https://www.jiemian.com/article/7009113.html">国内首个5G全连接风电柔性智能工厂建成；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',8)">&emsp;</span></div><div class="line">10．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16268363">国务院联防联控机制：天津暂停公交、出租、顺风车等跨城业务；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',9)">&emsp;</span></div><div class="line">11．<a target="_blank" href="https://www.jiemian.com/article/7008786.html">最高法：恶意损害生态环境，可处实际损失两倍惩罚性赔偿金；</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',10)">&emsp;</span></div><div class="line">12．<a target="_blank" href="https://www.thepaper.cn/newsDetail_forward_16269399">去年江苏全社会用电量突破7000亿千瓦时。</a><span class="lock" title="手工采编" onclick="lockOrRelease('news',11)">&emsp;</span></div>
+      </div>
+      <div class="header">
+        <span class="u">
+          <span class="before">【</span>历史上的今天<span class="after">】</span>
+        </span>
+      </div>
+      <div class="history-wrap">
+        <div class="line"><a href="javascript:void(0);" onclick="goToTodayInHistory(0)">1927年1月13日，南非生物学家悉尼·布伦纳出生。</a><span class="lock" title="手工采编" onclick="lockOrRelease('history',0)">&emsp;</span></div><div class="line"><a href="javascript:void(0);" onclick="goToTodayInHistory(1)">1989年1月13日，《国家重点保护野生动物名录》颁布。</a><span class="lock" title="手工采编" onclick="lockOrRelease('history',1)">&emsp;</span></div><div class="line"><a href="javascript:void(0);" onclick="goToTodayInHistory(2)">1902年1月13日，苏联政治家，苏联总理马林科夫出生。</a><span class="lock" title="手工采编" onclick="lockOrRelease('history',2)">&emsp;</span></div>
+      </div>
+      <div class="header">
+        <span class="u u-phrase">
+          <span class="before">【</span>天天成语<span class="after">】</span>
+        </span>
+        <span class="u u-poem" style="display: none;">
+          <span class="before">【</span>天天诗词<span class="after">】</span>
+        </span>
+        <span class="toggle-btn" title="切换天天诗词/成语" onclick="togglePhraseAndPoem()">&emsp;</span>
+        <a class="link link-game" href="javascript:void(0);" onclick="goToPuzzle()"></a>
+        <a class="link link-char" href="javascript:void(0);" onclick="goToZ()" style="display: none;">字间浮生 >></a>
+      </div>
+      <div class="phrase-wrap">
+        <div class="line letters">
+          <span class="hans"><span class="letter letter0" data-py="jī">击</span></span>　<span class="hans"><span class="letter letter1" data-py="suì">碎</span></span>　<span class="hans"><span class="letter letter2" data-py="tuò">唾</span></span>　<span class="hans"><span class="letter letter3" data-py="hú">壶</span></span>
+        </div>
+        <div class="line">释义：唾壶：古代的痰盂。形容对文学作品的高度赞赏。</div>
+        <div class="line">出处：南朝·宋·刘义庆《世说新语·豪爽》：“以如意打唾壶，壶口尽缺。”</div>
+      </div>
+      <div class="poem-wrap" style="display: none;">
+        <div class="line">浣溪沙&nbsp;&nbsp;—— 王之道</div>
+        <div class="line">体粟须烦鼎力苏。<br />流涎正值麴盈车。<br />坐来兽炭拨还无。<br />一阕可能酬一绝，双银端不换双珠。<br />松毛粉白老翁须。</div>
+      </div>
+      <div class="header">
+        <span class="u">
+          <span class="before">【</span>慧语香风<span class="after">】</span>
+        </span>
+      </div>
+      <div class="sentence-wrap">
+        <div class="line">
+          <span onclick="feedback('磨下的不亮，装下的不象。', '朝鲜族')">磨下的不亮，装下的不象。&nbsp;&nbsp;—— 朝鲜族</span>
+          <span class="lock" title="钉住" onclick="lockOrRelease('sentence', 1)">&emsp;</span>
+        </div>
+      </div>
+      <div class="header">
+        <span class="u">
+          <span class="before">【</span>进度条<span class="after">】</span>
+        </span>
+      </div>
+      <div class="line progress-bar">░░░░░░░░░░░░░░</div>
+      <div class="line">2022年，您已经使用了3.52%</div>
+    </div>
+    <div class="copyright">
+      <a href="javascript:void(0);" class="copy-btn" data-clipboard-target="#area" style="display:none;" onclick="onCopyComplete()">复制全文</a>&emsp;
+      <a href="javascript:void(0);" class="copy-btn" onclick="location.reload()">刷新看看</a><br/><br/>
+      <a href="/api">REST API</a>&nbsp;&nbsp;/&nbsp;&nbsp;Powered by <a href="http://a.topurl.cn/future/?from=news#/more">topurl.cn</a><br/>
+      <span>耗时122ms&nbsp;&nbsp;今日生成961500次&nbsp;&nbsp;累计生成3.412亿次</span>
+    </div>
+    <textarea id="area" readonly="readonly"></textarea>
+    <script>
+      function initClipboard(){
+        if(!window.ClipboardJS) return;
+        document.querySelector('.copy-btn').style.display = 'inline';
+        var area = document.querySelector('#area');
+        var text = document.querySelector('.content').innerText;
+        area.value = text.replace(/\r\n/g, '\n').replace(/【\n/g, '【').replace(/\n】/g, '】').replace(/\n\s\n/g, '').replace(/\n　\n/g, '').replace(/　/g, '').replace(/\s*成语解谜小游戏\s*\>\>/, '').replace(/\s*字间浮生\s*\>\>\n*/, '').replace(/\s*[☀|🌙]/g, '').replace(/\s\n/g, '\n').replace(/【天天成语】/, '【天天成语】\n').replace(/【天天诗词】/, '【天天诗词】\n');
+        if(area.value.slice(-4).indexOf('\n') === -1){
+          area.value += '\n';
+        }
+        area.value += '(由 http://news.topurl.cn 采集整理)';
+        new ClipboardJS('.copy-btn');
+      }
+      function onCopyComplete(){
+        setTimeout(function(){
+          window.fetch && window.fetch('/copy', {method: 'get'});
+          document.querySelector('#area').blur();
+          window.alert('内容已复制到剪贴板');
+        }, 0);
+      }
+      function togglePhraseAndPoem(){
+        var uPhrase = document.querySelector('.u.u-phrase');
+        var uPoem = document.querySelector('.u.u-poem');
+        var aLink = document.querySelector('a.link-game');
+        var aChar = document.querySelector('a.link-char');
+        var phraseWrap = document.querySelector('.phrase-wrap');
+        var poemWrap = document.querySelector('.poem-wrap');
+        if(uPoem.style.display === 'none'){
+          uPhrase.style.display = 'none';
+          aLink.style.display = 'none';
+          aChar.style.display = '';
+          phraseWrap.style.display = 'none';
+          uPoem.style.display = '';
+          poemWrap.style.display = '';
+          sessionStorage.setItem('showPoem', '1');
+        } else {
+          uPhrase.style.display = '';
+          aLink.style.display = '';
+          aChar.style.display = 'none';
+          phraseWrap.style.display = '';
+          uPoem.style.display = 'none';
+          poemWrap.style.display = 'none';
+          sessionStorage.removeItem('showPoem');
+        }
+        initClipboard();
+      }
+      function showPinyin(){
+        var letters = document.querySelectorAll('.letter');
+        letters = Array.from(letters);
+        var style = letters.reduce(function(acc, cur, index){
+          var py = cur.getAttribute('data-py');
+          if(!py || py === '，') py = '';
+          return acc + '.letter' + index + '::before {content:"' + py + '"}';
+        }, '');
+        document.writeln('<style>' + style + '</style>');
+      }
+      function goToWeather(){
+        window.open('http://m.weather.com.cn/');
+      }
+      function goToPuzzle(){
+        sessionStorage.setItem('fromNews', 1);
+        window.location.href = '/puzzle/';
+      }
+      function goToZ(){
+        window.location.href = 'http://z.topurl.cn/z/index.html';
+      }
+      function goToTodayInHistory(index){
+        var text = document.querySelectorAll('.history-wrap .line a')[index].innerText.slice(0, -1);
+        window.open('https://cn.bing.com/search?q=' + text);
+      }
+      function initLock(){ 
+        clearTimedOutLock();
+        markLockedItems();
+      }
+      function clearTimedOutLock(){
+        var now = Date.now();
+        ['newsLock', 'historyLock', 'sentenceLock'].forEach(function(key){
+          var list = JSON.parse(sessionStorage.getItem(key) || '[]');
+          list = list.filter(function(item){
+            return item.time > now - 7200000;
+          });
+          sessionStorage.setItem(key, JSON.stringify(list));
+        });
+      }
+      function markLockedItems(){
+        ['news', 'history', 'sentence'].forEach(function(type){
+          var key = type + 'Lock';
+          var list = JSON.parse(sessionStorage.getItem(key) || '[]');
+          var domList = [];
+          if(type === 'news'){
+            domList = Array.from(document.querySelectorAll('.news-wrap .line a'));
+          } else if (type === 'history'){
+            domList = Array.from(document.querySelectorAll('.history-wrap .line a'));
+          } else {
+            domList = [document.querySelector('.sentence-wrap span')];
+          }
+          domList.forEach(function(dom, index){
+            var text = dom.innerText;
+            var cacheIndex = list.findIndex(function(item){
+              return item.text.slice(0, -1) === text.slice(0, -1);
+            });
+            if(cacheIndex > -1){
+              var cache = list[cacheIndex];
+              list.splice(cacheIndex, 1);
+              lockOrRelease(type, index);
+            }
+          });
+          if(!list.length) return;
+          domList.forEach(function(dom, index){
+            if(dom.className.indexOf('locked-status') > -1) return;
+            var isLastNews = (type === 'news') && (index === domList.length - 1);
+            var cache = list.shift();
+            if(!cache) return;
+            dom.innerText = cache.text.slice(0, -1) + (isLastNews ? '。' : type === 'news' ? '；' : type === 'sentence' ? cache.text.slice(-1) : '。');
+            if(cache.url){
+              dom.href = cache.url;
+            }
+            lockOrRelease(type, index);
+          });
+        });
+      }
+      function lockOrRelease(type, index){
+        var icon, dom, text, url = '';
+        if(type === 'news'){
+          icon = document.querySelectorAll('.news-wrap .line')[index].querySelector('.lock');
+          dom = document.querySelectorAll('.news-wrap .line')[index].querySelector('a');
+          text = dom.innerText;
+          url = dom.href;
+        } else if (type === 'history'){
+          icon = document.querySelectorAll('.history-wrap .line')[index].querySelector('.lock');
+          dom = document.querySelectorAll('.history-wrap .line')[index].querySelector('a');
+          text = dom.innerText;
+        } else {
+          icon = document.querySelector('.sentence-wrap .lock');
+          dom = document.querySelector('.sentence-wrap span');
+          text = dom.innerText;
+        }
+        if(icon.className.indexOf('locked') > -1){
+          icon.className = 'lock';
+          icon.previousElementSibling.className = ''
+          lockRelease(type, {text: text, url: url});
+        } else {
+          icon.className = 'lock locked';
+          icon.previousElementSibling.className = 'locked-status';
+          lockLog(type, {text: text, url: url});
+        }
+      }
+      function lockLog(type, data){
+        data.time = Date.now();
+        var list = JSON.parse(sessionStorage.getItem(type + 'Lock') || '[]');
+        if(list.findIndex(function(item){return item.text.slice(0, -1) === data.text.slice(0, -1)}) > -1) return;
+        list.push(data);
+        sessionStorage.setItem(type + 'Lock', JSON.stringify(list));
+      }
+      function lockRelease(type, data){
+        var list = JSON.parse(sessionStorage.getItem(type + 'Lock') || '[]');
+        list = list.filter(function(item){
+          return item.text.slice(0, -1) !== data.text.slice(0, -1);
+        });
+        sessionStorage.setItem(type + 'Lock', JSON.stringify(list));
+			}
+			function feedback(sentence, author){
+				var then = window.lastClickTime || 0;
+				var now = Date.now();
+				window.lastClickTime = now;
+				if (now - then > 500) return;
+				var isConfirmed = window.confirm('由于格言警句采用外部数据库导入，错误较多，在此感谢您协助勘误。您确认此条数据有误吗？');
+				if (!isConfirmed) return;
+        var remark = window.prompt('附言（可选）')
+				window.fetch && window.fetch('/wrongSentence', {method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sentence: sentence, author: author, remark: remark })});
+			}
+      function dblClick(){
+        var then = window.lastClickTime || 0;
+				var now = Date.now();
+				window.lastClickTime = now;
+				if (now - then > 500) return;
+        if (location.href.indexOf('ip=') === -1) {
+          location.href = 'https://news.topurl.cn/';
+        } else {
+          if (location.href.indexOf('count=') === -1) {
+            location.href += '&count=12';
+          } else {
+            location.reload();
+          }
+        }
+      }
+
+      showPinyin();
+      initLock();
+      if(sessionStorage.getItem('showPoem')){
+        togglePhraseAndPoem();
+      }
+      window.onload = function(){
+        document.querySelector('.toggle-day-night').className = 'toggle-day-night';
+      }
+    </script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js" defer="defer" onload="initClipboard()"></script>
+  </body>
+</html>
