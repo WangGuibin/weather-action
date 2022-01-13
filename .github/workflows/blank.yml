@@ -89,3 +89,15 @@ jobs:
             
             发布自Github Action
             https://github.com/WangGuibin/weather-action 
+        
+      - name: '打完收工,提交代码!'
+        run: |
+          git config --local user.email "864562082@qq.com"
+          git config --local user.name "WangGuibin"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          today=$(date +"%Y-%m-%d")
+          cp -a result.txt ${today}.txt
+          git add .
+          git commit -m "Update By Github Action Bot"
+          git push
