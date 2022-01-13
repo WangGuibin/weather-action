@@ -97,7 +97,7 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           today=$(date +"%Y-%m-%d")
-          cp -a result.txt ${today}.txt
+          cp -Rf result.txt logs/${today}.txt
           git add .
           git commit -m "Update By Github Action Bot"
           git push
