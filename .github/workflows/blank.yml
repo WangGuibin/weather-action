@@ -27,6 +27,7 @@ jobs:
         run: |
           echo "SGXC_TIMESTAMP=$(TZ=':Asia/Shanghai' date '+%s')" >> $GITHUB_ENV
           echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+          echo "TODAY_DATE=$(TZ=':Asia/Shanghai' date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: 'Get TEXT'
         run: |
             echo 'FILE_TEXT<<EOF' >> $GITHUB_ENV
@@ -96,8 +97,7 @@ jobs:
           git config --local user.name "WangGuibin"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
           git pull 
-          today=$(date +"%Y-%m-%d")
-          cp -Rf result.txt logs/${today}.txt
+          cp -Rf result.txt logs/${{env.TODAY_DATE}}.txt
           git add .
           git commit -m "Update By Github Action Bot"
           git push
