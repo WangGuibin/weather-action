@@ -95,7 +95,7 @@ jobs:
           git config --local user.email "864562082@qq.com"
           git config --local user.name "WangGuibin"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
-          git pull --rebase
+          git pull 
           today=$(date +"%Y-%m-%d")
           cp -Rf result.txt logs/${today}.txt
           git add .
