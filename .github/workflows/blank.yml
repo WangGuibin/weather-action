@@ -72,7 +72,7 @@ jobs:
           username: ${{ secrets.MAIL_USER_NMAE }}
           password: ${{ secrets.MAIL_PWD }}
           subject: 时光相册签到 (${{env.REPORT_DATE}})
-          body: "🔥时光相册签到成功!已成功白嫖(+50MB)~"
+          body: "🔥时光相册签到成功!已成功白嫖(+125MB)~"
           to: 864562082@qq.com
           from: GitHub Actions
           content_type: text/plain
@@ -86,7 +86,7 @@ jobs:
           content: |
             ${{env.FILE_TEXT}}
              
-            🔥时光相册签到成功!已成功白嫖(+50MB)~
+            🔥时光相册签到成功!已成功白嫖(+125MB)~
             
             发布自Github Action
             https://github.com/WangGuibin/weather-action 
