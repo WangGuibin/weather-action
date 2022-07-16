@@ -25,7 +25,6 @@ jobs:
         run: python ./getInfo.py
       - name: 'Get Date'
         run: |
-          echo "SGXC_TIMESTAMP=$(TZ=':Asia/Shanghai' date '+%s')" >> $GITHUB_ENV
           echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
           echo "TODAY_DATE=$(TZ=':Asia/Shanghai' date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: 'Get TEXT'
@@ -45,37 +44,7 @@ jobs:
 #           to: 864562082@qq.com
 #           from: GitHub Actions
 #           content_type: text/html
-      - name: "时光相册签到"
-        run: |
-           result=$(curl \
-              -X POST \
-              -H "Content-Type:application/json"\
-              -H "Authorization:${{ secrets.SGXC_AUTHORIZATION }}" \
-              -H "x-Device-IDFA:${{ secrets.SGXC_X_DEVICE_IDFA }}"\
-              -H "x-uid:${{ secrets.SGXC_X_UID }}"\
-              -H "X-Api-Version:${{ secrets.SGXC_API_VERSION }}"\
-              -H "X-Timestamp:${{ env.SGXC_TIMESTAMP }}"\
-              -H "x-device-id: ${{ secrets.SGXC_X_DEVICE_ID }}"\
-              -H "Cookie:${{ secrets.SGXC_COOKIE }}"\
-              -H "X-Locked:1"\
-              -H "Host:api.everphoto.cn"\
-              -H "User-Agent:EverPhoto/2.7.10 (iOS;271002;iPhone11,8;14.0.1;App Store)"\
-              -H "Accept-Language:zh-Hans-CN;q=1.0"\
-              -H "Accept-Encoding: gzip;q=1.0, compress;q=0.5"\
-              -H "Accept:*/*"\
-               https://api.everphoto.cn/users/self/checkin/v2)
-#       - name: '发送邮件通知'
-#         uses: dawidd6/action-send-mail@master
-#         with:
-#           server_address: smtp.163.com
-#           server_port: 465
-#           username: ${{ secrets.MAIL_USER_NMAE }}
-#           password: ${{ secrets.MAIL_PWD }}
-#           subject: 时光相册签到 (${{env.REPORT_DATE}})
-#           body: "🔥时光相册签到成功!已成功白嫖(+125MB)~"
-#           to: 864562082@qq.com
-#           from: GitHub Actions
-#           content_type: text/plain
+
           
       - name: '发送到钉钉群'
         uses: fifsky/dingtalk-action@master
@@ -85,12 +54,7 @@ jobs:
           at: all
           content: |
             ${{env.FILE_TEXT}}
-             
-            🔥时光相册签到成功!已成功白嫖(+125MB)~
-            
-            发布自Github Action
-            https://github.com/WangGuibin/weather-action 
-        
+                     
       - name: '打完收工,提交代码!'
         run: |
           git config --local user.email "864562082@qq.com"
