@@ -68,7 +68,7 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
           git pull
           currentDate=${{env.TODAY_DATE}}
-          cp -Rf result.txt ${currentDate%%-*}/${currentDate}.txt
+          mkdir -p  ${currentDate%%-*} && cp result.txt ${currentDate%%-*}/${currentDate}.txt
           git add .
           git commit -m "Update By Github Action Bot"
           git push
