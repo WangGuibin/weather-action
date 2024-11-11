@@ -66,8 +66,9 @@ jobs:
           git config --local user.email "864562082@qq.com"
           git config --local user.name "WangGuibin"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MYGG_TOKEN }}@github.com/${{ github.repository }}
-          git pull 
-          cp -Rf result.txt logs/${{env.TODAY_DATE}}.txt
+          git pull
+          currentDate=${{env.TODAY_DATE}}
+          cp -Rf result.txt ${currentDate%%-*}/${currentDate}.txt
           git add .
           git commit -m "Update By Github Action Bot"
           git push
