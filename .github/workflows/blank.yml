@@ -12,7 +12,7 @@ jobs:
       - name: python env
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.12.8
       # 安装依赖
       - name: Install dependencies
         run: |
