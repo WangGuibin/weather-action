@@ -63,7 +63,7 @@ jobs:
 
       - name: bark接收通知消息
         run: |
-          curl "https://api.day.app/${{ secrets.BARK_API_KEY }}/%E6%AF%8F%E6%97%A5%E6%97%A9%E6%8A%A5/${{env.FILE_TEXT}}?group=Github%20Action"
+          curl "https://api.day.app/${{ secrets.BARK_API_KEY }}/%E6%AF%8F%E6%97%A5%E6%97%A9%E6%8A%A5/早上好?url=https://fastly.jsdelivr.net/gh/WangGuibin/weather-action@master/result.txt"
       
       - name: '打完收工,提交代码!'
         run: |
