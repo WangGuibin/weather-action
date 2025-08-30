@@ -60,7 +60,11 @@ jobs:
           curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
           -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
           -d "text=${{env.FILE_TEXT}}"
-                     
+
+      - name: bark接收通知消息
+        run: |
+          curl "https://api.day.app/${{ secrets.BARK_API_KEY }}/%E6%AF%8F%E6%97%A5%E6%97%A9%E6%8A%A5/${{env.FILE_TEXT}}?group=Github%20Action"
+      
       - name: '打完收工,提交代码!'
         run: |
           git config --local user.email "864562082@qq.com"
